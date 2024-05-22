@@ -8,9 +8,10 @@ First steps:
   },
   This will help you when you run: npm start
 
-middleware is used to do some operations on the request or the response before responding
-next() function orders to go to the next operation, it could be another middleware like: chain of middlewares or go to the function that handles
+Notes:
+1. middleware is used to do some operations on the request or the response before responding
+2. next() function orders to go to the next operation, it could be another middleware like: chain of middlewares or go to the function that handles
 the path
 
-RequestHandler is an express pacakge that is used to handle the middleware 
+3. RequestHandler is an express pacakge that is used to handle the middleware 
 use function used to tell your server to use this middleware before any response
