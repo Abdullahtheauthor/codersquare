@@ -40,3 +40,9 @@
 // to prove typescript won't validate it after your assertion
 let data: any =1000; 
 console.log((data as string).repeat(3));   // This will give the error in run time not in compiloe time
+
+
+type ExpressHandler<req,res> = {
+    req:string,
+    res:string
+};

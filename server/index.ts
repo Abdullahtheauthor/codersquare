@@ -1,5 +1,5 @@
 import express, { RequestHandler } from "express"
-import { db } from './datastore'
+import { listPostHandler, createPostHandler } from "./handlers/posthandlers";
 const app = express();
 
 app.use(express.json());         // this line is added because unlike most servers, express can't hnadle json reqs. This line enable it to do so
@@ -12,15 +12,8 @@ const requestLoggerMiddleware : RequestHandler = (req, res, next) => {
 }
 app.use(requestLoggerMiddleware);
 
-app.get('/posts', (request, response) => {
-    response.send({ posts: db.listPosts() });
-})
-
-app.post('/posts' , (req, res) => {
-    const post = req.body;
-    db.createPost(post);
-    res.sendStatus(200);
-})
+app.get('/posts', listPostHandler);
+app.post('/posts' , createPostHandler)
 
 // app.get('/', (request, response) => {
 //     response.send({ posts });
